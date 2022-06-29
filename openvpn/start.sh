@@ -2,6 +2,9 @@
 # Forked from binhex's OpenVPN dockers
 set -e
 
+#create tun
+mkdir /dev/net && mknod /dev/net/tun c 10 200 && chmod 600 /dev/net/tun
+
 # check for presence of network interface docker0
 check_network=$(ifconfig | grep docker0 || true)
 
